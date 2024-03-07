@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+{% block extrahead %}
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Load highlight js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/highlight.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.9.0/styles/monokai.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+  <script>hljs.highlightAll();</script>
+{% endblock %}
+{% block announce %}
+  For updates follow <strong>@Jij_Inc</strong> on
+  <a href="https://twitter.com/Jij_Inc">
+    <span class="twemoji twitter">
+      {% include ".icons/fontawesome/brands/twitter.svg" %}
+    </span>
+    <strong>Twitter</strong>
+  </a>
+{% endblock %}
+{% block scripts %}
+  {{ super() }}
+{% endblock %}
