@@ -1,0 +1,164 @@
+# Copyright (c) 2020-2023 Jij Inc.
+
+# Project information
+site_name: minto
+site_author: Jij Inc.
+site_description: "minto: Management and Insight tool for Optimization"
+# Repository
+repo_name: minto
+repo_url: https://github.com/Jij-Inc/MINTO-Public
+site_url: https://jij-inc.github.io/minto/
+
+
+# Copyright
+copyright: Copyright &copy; 2023-2024 Jij Inc.
+
+# Configuration
+theme:
+  name: material
+  custom_dir: docs/overrides
+  logo: 'assets/minto_white.png'
+  features:
+    - announce.dismiss
+    # - content.action.edit
+    # - content.action.view
+    - content.code.annotate
+    - content.code.copy
+    # - content.tabs.link
+    - content.tooltips
+    # - header.autohide
+    # - navigation.expand
+    - navigation.footer
+    # - navigation.indexes
+    # - navigation.instant
+    # - navigation.prune
+    - navigation.sections
+    # - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # - toc.integrate
+  palette:
+    - scheme: default
+      primary: teal
+      accent: light green
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: slate
+      primary: teal
+      accent: teal
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/minto_green.png
+  icon:
+    logo: logo
+
+# Plugins
+plugins:
+  - git-revision-date-localized:
+      fallback_to_build_date: true
+      type: iso_datetime
+      locale: en
+  - search:
+      separator: '[\s\-,:!=\[\]()"`/]+|\.(?!\d)|&[lg]t;|(?!\b)(?=[A-Z][a-z])'
+  - literate-nav:
+      nav_file: docs/reference/SUMMARY.md
+  - autorefs
+  - tags 
+  - section-index
+  - minify:
+      minify_html: true
+      htmlmin_opts:
+          remove_comments: true
+      cache_safe: true
+  - mkdocstrings:
+      default_handler: python
+      handlers:
+        python:
+          options:
+            show_source: true
+            docstring_style: "google"
+  - gen-files:
+      scripts:
+      - docs/overrides/gen_ref_pages.py
+
+# Customization
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/Jij-Inc/MINTO-Public
+    - icon: fontawesome/brands/python
+      link: https://pypi.org/project/minto/
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/Jij_Inc
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.7/MathJax.js?config=TeX-AMS-MML_HTMLorMML
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+  - pymdownx.superfences:
+      custom_fences:
+        - name: python
+          class: lang-python
+          format: !!python/name:pymdownx.highlight.highlight
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+      pygments_style: default
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: true
+      user: Jij-Inc
+      repo: mkdocs-material
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.superfences:
+      custom_fences:
+        - name: python
+          class: lang-python
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+# Page tree
+nav:
+  - Home: index.md
+  - Getting started:
+    - "What is minto?": what_is_minto.md
+    - "Quick Start": quickstart.md
+    - Changelog: https://github.com/Jij-Inc/MINTO-Public
+  - Tutorial:
+    - "Benchmarking QUBO for TSP": tutorials/openjij_experiment.md
+  - Reference: reference/
