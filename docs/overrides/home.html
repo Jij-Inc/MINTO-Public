@@ -1,0 +1,180 @@
+{% extends "main.html" %}
+{% block tabs %}
+{{ super() }}
+<style>
+  .feature-bg { background-color: #e0f2f1; }
+  .button-bg { background-color: #4aa596; }
+  .button-bg:hover { background-color: #347469; }
+  .footer-bg { background-color: #1b5e20; }
+  p { font-size: 1.5em; }
+
+</style>
+
+<section class="text-center py-8 bg-white">
+  
+  <div class="container mx-auto">
+    <img src="assets/minto_green.png" alt="Minto Logo" class="mx-auto mb-4" style="width: 90px; height: 75px;">
+  </div>
+  <h1 class="text-4xl font-bold text-gray-800 mb-2">Management and Insight Toolkit for Optimization</h1>
+  <p class="text-lg mb-4">Start mathematical optimization development today with minto.</p>
+
+  <!-- pip install コマンド -->
+  <div class="bg-gray-200 inline-block rounded px-4 py-2 mb-4" style="font-size: small;">
+    <code class="shell">pip install minto</code>
+  </div>
+
+  <!-- Get Started ボタン -->
+  <a href="{{ site_url }}/minto/what_is_minto/" class=" button-bg button-bg:hover text-white font-bold py-2 px-4 rounded" style="font-size: small;">
+    Get Started
+  </a>
+</section>
+
+<!-- Key features section -->
+<section class="py-12 bg-white">
+  <div class="container mx-auto">
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">What is MINTO</h2>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Feature Card 1 -->
+      <div class="rounded-lg p-6 flex flex-col items-center">
+        <i class="fas fa-project-diagram fa-4x text-green-600 mb-4"></i>
+        <h3 class="text-base font-semibold mb-2">Streamlined Experiment Management</h3>
+        <p class="text-gray-700 text-center">
+          Effortlessly manage and track your optimization experiments with minto. Our tool simplifies complex workflows,
+          making it
+          easy to set up, run, and monitor experiments.
+        </p>
+      </div>
+
+      <!-- Feature Card 2 -->
+      <div class="rounded-lg p-6 flex flex-col items-center">
+        <i class="fas fa-chart-line fa-4x text-green-600 mb-4"></i>
+        <h3 class="text-base font-semibold mb-2">Integrated Analytics and Visualization</h3>
+        <p class="text-gray-700 text-center">
+          Gain critical insights with integrated analytics and visualization. minto transforms your data into
+          easy-to-understand
+          visuals, helping you make informed decisions quickly.
+        </p>
+      </div>
+
+      <!-- Feature Card 3 -->
+      <div class="rounded-lg p-6 flex flex-col items-center">
+        <i class="fas fa-users fa-4x text-green-600 mb-4"></i>
+        <h3 class="text-base font-semibold mb-2">Collaboration and Data Sharing (Future)</h3>
+        <p class="text-gray-700 text-center">
+          Future updates to minto will include seamless collaboration and data sharing features. These enhancements will
+          enable
+          teams to work together more effectively, sharing insights and progress in real-time.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="py-8 bg-gray-100">
+  <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Key Features</h2>
+  <div class="container mx-auto px-4">
+    <!-- Set 1: Description on the Left, Code/Image on the Right -->
+    <div class="md:flex md:items-center md:justify-between py-4">
+      <div class="md:w-1/2 mb-4 md:mb-0 md:mr-8">
+        <h3 class="text-xl font-semibold mb-2">Easy Logging with Context Management</h3>
+        <p class="text-gray-700">
+          Begin your experimentation with minto's straightforward logging within a 'with' statement context. This
+          approach allows
+          you to effortlessly capture logs, handling not only scalar values but also more complex data types. When
+          integrated with
+          JijModeling, minto can automatically parse and save the results from optimization solvers, streamlining your
+          data
+          collection process.
+        </p>
+      </div>
+      <div class="md:w-1/2">
+        <pre><code class="language-python">
+import minto
+# Create and setup your model and paramters
+...
+# Run your experiment with minto
+experiment = minto.Experiment("Optimization Experiment")
+for parameters in parameters_list:
+    with experiment.run():
+        experiment.log_parameter("model", problem)
+        for name, param in parameters.items():
+            experiment.log_parameter(name, param)
+        result = solver.solve(problem, **parameters)
+                        </code></pre>
+      </div>
+    </div>
+
+    <!-- Set 2: Code/Image on the Left, Description on the Right -->
+    <div class="md:flex md:items-center md:justify-between py-4 flex-row-reverse">
+      <div class="md:w-1/2 mb-4 md:mb-0 md:ml-8">
+        <h3 class="text-xl font-semibold mb-2">Analyzing Experiment Logs with the .table Method</h3>
+        <p class="text-gray-700">
+          After running experiments, use the .table method to review your collected logs as a pandas DataFrame. This
+          feature is
+          especially handy when working with JijModeling for mathematical modeling and solver results, offering
+          automatic parsing
+          for ease of statistical processing. The auto-parse functionality is designed for compatibility with various
+          mathematical
+          optimization solvers and modelers, further expanding minto's versatility.
+        </p>
+      </div>
+      <div class="md:w-1/2">
+        <pre><code class="language-python">
+# Get your experiment results as a pandas DataFrame
+df = experiment.table()
+df.head()
+                        </code></pre>
+        <img src="assets/experiment_table.jpg" alt="Another Feature Image" class="w-full rounded-lg">
+      </div>
+    </div>
+
+
+    <!-- Set 1: Description on the Left, Code/Image on the Right -->
+    <div class="md:flex md:items-center md:justify-between py-4">
+      <div class="md:w-1/2 mb-4 md:mb-0 md:mr-8">
+        <h3 class="text-xl font-semibold mb-2">Effortless Saving and Sharing of Experimental Results</h3>
+        <p class="text-gray-700">
+          Easily save your experimental results with minto's save method. Retrieve your data anytime with the .load
+          method,
+          facilitating seamless sharing with other developers. This eliminates the need for designing specific data
+          schemas or
+          writing extensive READMEs for each project, thereby enhancing collaboration and efficiency in your
+          experimentation
+          workflow.
+        </p>
+      </div>
+      <div class="md:w-1/2">
+        <pre><code class="language-python">
+# save your experiment results
+experiment.save()
+
+# load your experiment results
+experiment = minto.load("Optimization Experiment")
+                        </code></pre>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section class="py-8 bg-white">
+  <div class="container mx-auto text-center">
+    <div class="container mx-auto text-center">
+      <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Powered by</h2>
+      <img src="assets/jij_logo.png" alt="Jij Logo" class="mx-auto mb-4" style="width: 180px; height: 150px;">
+    </div>
+  </div>
+  <div class="container mx-auto text-center">
+    <h2 class="text-3xl font-bold text-center text-gray-800 mb-8">Join Our Discord Community</h2>
+    <a href="https://discord.gg/Km5dKF9JjG"
+      class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded inline-flex items-center text-lg">
+      <i class="fab fa-discord mr-3"></i>
+      Join Discord
+    </a>
+  </div>
+</section>
+
+{% endblock %}
+{% block content %}{% endblock %}
+{% block footer %}{% endblock %}
