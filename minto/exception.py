@@ -1,0 +1,2 @@
+class MINTOError(Exception):
+    pass
