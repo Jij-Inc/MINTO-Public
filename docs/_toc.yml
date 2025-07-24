@@ -1,0 +1,26 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: Introduction
+    chapters:
+    - file: quickstart
+  - caption: Tutorials
+    chapters:
+    - file: tutorials/cvrp_model_benchmark
+    - file: tutorials/github_push
+    - file: tutorials/mip_time
+    - file: tutorials/openjij_temp_tuning
+    - file: qubo_parameter_search
+  - caption: Migration
+    chapters:
+    - file:  migration/v0tov1_migration
+  - caption: Contributer's Guide
+    chapters:
+    - file:  for_contributers/new_data_schema
+
+  - caption: API Reference
+    chapters:
+    - file: autoapi/index

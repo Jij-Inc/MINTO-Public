@@ -1,0 +1,79 @@
+[build-system]
+build-backend = "poetry_dynamic_versioning.backend"
+requires = ["poetry-core>=1.5.2", "poetry-dynamic-versioning>=0.21.4"]
+
+[tool.poetry-dynamic-versioning]
+enable = true
+style = "pep440"
+
+[tool.pytest.ini_options]
+addopts = "-s -vv --color=yes --randomly-seed=last --code-highlight=yes --cov-context=test --cov --cov-report term  --cov-config .coveragerc"
+console_output_style = "count"
+log_auto_indent = true
+testpaths = ["tests"]
+
+[tool.poetry]
+authors = ["Jij Inc. <info@j-ij.com>"]
+classifiers = [
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.9",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3 :: Only",
+  "Operating System :: POSIX",
+  "Operating System :: Unix",
+  "Operating System :: MacOS",
+] 
+description = "Experiment management and benchmark tools for mathematical optimization" 
+documentation = "https://jij-inc.github.io/minto" 
+homepage = "https://www.j-ij.com/" 
+include = ["minto/*.py"] 
+license = "MIT" 
+name = "minto" 
+readme = "README.md" 
+repository = "https://github.com/Jij-Inc/MINTO-Public" 
+version = "0.8.0" # using poetry-dynamic-versioning
+
+[tool.poetry.dependencies]
+numpy = ">=1.24"
+pandas = ">=1.5.3,<3.0.0"
+pydantic = ">=2.0.0"
+python = ">=3.10,<3.13"
+jijmodeling = ">1.8.0"
+ommx = ">=1.8.1"
+
+[tool.poetry.group.tests.dependencies]
+coverage = "^7.2.2"
+openjij = ">=0.7.3,<1.0.0"
+pytest = ">=7.2.2,<9.0.0"
+pytest-asyncio = "^0.25.0"
+pytest-cov = ">=4,<6"
+pytest-mock = "^3.10.0"
+pytest-randomly = "^3.12.0"
+pytest-spec = "^3.2.0"
+
+[tool.poetry.group.dev.dependencies]
+black = ">=23.3,<25.0"
+isort = "^5.12.0"
+jupyter = "^1.0.0"
+pre-commit = "^3.2.1"
+matplotlib = "^3.10.0"
+seaborn = "^0.13.2"
+ommx-openjij-adapter = "^1.6.0"
+ommx-pyscipopt-adapter = "^1.8.1"
+jijzept = {version = "^1.18.5", python = ">=3.10,<3.12"}
+
+[tool.poetry.group.docs.dependencies]
+mkdocs = "^1.4.2"
+mkdocs-autorefs = ">=0.4.1,<1.4.0"
+mkdocs-gen-files = ">=0.4,<0.6"
+mkdocs-git-revision-date-localized-plugin = "^1.2.0"
+mkdocs-literate-nav = "^0.6.0"
+mkdocs-material = "^9.1.5"
+mkdocs-minify-plugin = ">=0.6.4,<0.9.0"
+mkdocs-section-index = "^0.3.5"
+mkdocstrings = {extras = ["python"], version = ">=0.19"}
+mkdocs-jupyter = "^0.25.1"
+jupyter = "^1.1.1"
+jupyter-book = "^1.0.4.post1"
+sphinx-autoapi = "^3.6.0"
