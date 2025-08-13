@@ -1,0 +1,27 @@
+# Table of contents - Japanese version
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: "🌐 Language"
+    chapters:
+    - file: language
+  - caption: はじめに
+    chapters:
+    - file: mental_model
+    - file: quickstart
+    - file: user_guide
+  - caption: 高度な使用方法
+    chapters:
+    - file: integration_guide
+    - file: logging_guide
+  - caption: チュートリアル
+    chapters:
+    - file: tutorials/logging_tutorial
+    - file: tutorials/data_access_tutorial
+    - file: tutorials/cvrp_model_benchmark
+    - file: tutorials/github_push
+    - file: tutorials/mip_time
+    - file: tutorials/openjij_temp_tuning
+    - file: tutorials/qubo_parameter_search

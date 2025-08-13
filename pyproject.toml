@@ -1,0 +1,106 @@
+[build-system]
+requires = ["setuptools >= 64", "setuptools_scm >= 8", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[tool.pytest.ini_options]
+addopts = "-s -vv --color=yes --randomly-seed=last --code-highlight=yes --cov-context=test --cov --cov-report term  --cov-config .coveragerc"
+console_output_style = "count"
+log_auto_indent = true
+testpaths = ["tests"]
+
+[project]
+name = "minto"
+description = "Experiment management and benchmark tools for mathematical optimization"
+readme = "README.md"
+license = {text = "MIT"}
+authors = [
+  {name = "Jij Inc.", email = "info@j-ij.com"},
+]
+classifiers = [
+  "Operating System :: POSIX :: Linux",
+  "Programming Language :: Python",
+  "Programming Language :: Python :: 3.10",
+  "Programming Language :: Python :: 3.11",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3 :: Only",
+  "Operating System :: POSIX",
+  "Operating System :: Unix",
+  "Operating System :: MacOS",
+]
+requires-python = ">=3.10,<3.13"
+dependencies = [
+  "numpy>=1.24.4,<3.0.0",
+  "pandas>=1.5.3,<3.0.0",
+  "pydantic>=2.0.0,<3.0.0",
+  "jijmodeling>=1.12.4,<2.0.0",
+  "ommx>=2.0.0,<3.0.0",
+]
+dynamic = ["version"]
+
+[project.urls]
+Homepage = "https://www.j-ij.com/"
+Documentation = "https://jij-inc.github.io/minto"
+Repository = "https://github.com/Jij-Inc/MINTO-Public"
+
+[dependency-groups]
+dev = [
+    "black>=24.10.0",
+    "coverage>=7.2.2",
+    "isort>=6.0.1",
+    "jijzept>=1.18.5",
+    "jupyter>=1.1.1",
+    "jupyter-book>=1.0.4.post1",
+    "matplotlib>=3.10.5",
+    "networkx>=3.4.2",
+    "ommx-openjij-adapter>=1.9.5",
+    "ommx-pyscipopt-adapter>=1.9.5",
+    "openjij>=0.11",
+    "pre-commit>=4.2.0",
+    "pytest>=7.2.2,<9.0.0",
+    "pytest-asyncio>=0.25.0",
+    "pytest-cov>=4,<6",
+    "pytest-mock>=3.10.0",
+    "pytest-randomly>=3.12.0",
+    "pytest-spec>=3.2.0",
+    "ruff>=0.12.7",
+    "seaborn>=0.13.2",
+    "sphinx-autoapi>=3.6.0",
+    "sphinxcontrib-mermaid>=1.0.0",
+]
+
+[tool.ruff]
+target-version="py310"
+line-length = 88
+indent-width = 4
+fix = true
+
+[tool.ruff.format]
+exclude = ["*.ipynb"]
+
+[tool.ruff.lint]
+select = [
+  "E",
+  "F", 
+  "W",
+  "I",
+  "Q",
+  "PERF",
+  "RUF"
+]
+
+[tool.ruff.lint.flake8-quotes]
+inline-quotes = "double"
+
+[tool.ruff.lint.per-file-ignores]
+# Ignore specific rules in notebook files
+# E402: Imports not at top of file - Notebooks often have imports at various places for demonstration purposes
+# F811: Redefined name - Notebooks have non-linear execution order
+# F841: Unused variables - Variables are sometimes defined for educational purposes even if not used
+# E501: Line length - Many scientific/mathematical expressions are more readable on a single line
+# I001: Import block is un-sorted - Notebooks often have imports scattered throughout cells
+"**/*.ipynb" = ["E402", "F811", "F841", "E501", "I001"]
+
+[tool.setuptools]
+packages = ["minto"]
+
+[tool.setuptools_scm]

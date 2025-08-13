@@ -1,0 +1,45 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: "🌐 Language"
+    chapters:
+    - file: language
+  - caption: Getting Started
+    chapters:
+    - file: quickstart
+    - file: user_guide
+  - caption: Advanced Usage
+    chapters:
+    - file: integration_guide
+    - file: faq
+  - caption: Tutorials
+    chapters:
+    - file: tutorials/logging_tutorial
+    - file: tutorials/data_access_tutorial
+    - file: tutorials/cvrp_model_benchmark
+    - file: tutorials/github_push
+    - file: tutorials/mip_time
+    - file: tutorials/openjij_temp_tuning
+    - file: tutorials/qubo_parameter_search
+  - caption: Migration
+    chapters:
+    - file: migration/v0tov1_migration
+  - caption: Contributor's Guide
+    chapters:
+    - file: for_contributors/new_data_schema
+  - caption: Concepts
+    chapters:
+    - file: concepts/overview
+    - file: mental_model
+    - file: concepts/datastore
+    - file: environment_metadata_feature
+    - file: task_completion_summary
+  - caption: API Reference
+    chapters:
+    - file: api/index
+    - file: api/run_api
+    - file: api/logging_api
+    - file: autoapi/index
