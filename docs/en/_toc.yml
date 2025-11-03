@@ -1,0 +1,22 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+parts:
+  - caption: Getting Started
+    chapters:
+    - file: quickstart.ipynb
+  - caption: Tutorial
+    chapters:
+    - file: tutorials/minto_datastore.ipynb
+    - file: tutorials/log_methods.ipynb
+    - file: tutorials/save_pull_push.ipynb
+    - file: tutorials/logging_tutorial
+  - caption: Use Cases
+    chapters:
+    - file: usecases/01index.md
+    - file: usecases/openjij_temp_tuning
+    - file: usecases/cvrp_model_benchmark.ipynb
+    - file: usecases/mip_time.ipynb
+    - file: usecases/qubo_parameter_search.ipynb
